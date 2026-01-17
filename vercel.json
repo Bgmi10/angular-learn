@@ -1,5 +1,4 @@
 {
-    "version": 2,
     "builds": [
       {
         "src": "package.json",
@@ -9,10 +8,15 @@
         }
       }
     ],
-    "routes": [
+    "headers": [
       {
-        "src": "/(.*)",
-        "dest": "/index.html"
+        "source": "/main-*.js",
+        "headers": [
+          { "key": "Content-Type", "value": "application/javascript" }
+        ]
       }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/index.html" }
     ]
-}
+  }   
